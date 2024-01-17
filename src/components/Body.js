@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { SWIGGY_API } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useRestarauntList from "../utils/useRestarauntList";
+import { withDeliveryLogo } from "./RestarauntCard";
 
 
 const Body=()=>{
@@ -62,6 +63,9 @@ const restaurantList=useRestarauntList(); //getting restarauntList from SWIGGY A
 const [filteredRestaraunt,setFilteredList]=useState([]);
 const [searchText,setSearchText]=useState("");//search box value
 
+//higher order component
+const RestarauntWithDel=withDeliveryLogo(RestarauntCard);
+
 
 //fetching data from live swiggy api
  useEffect(()=>{fetchData()},[])
@@ -71,7 +75,7 @@ const [searchText,setSearchText]=useState("");//search box value
     const json=await data.json();
     console.log(json);
  
-    setFilteredList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)  //optional chaining
+    setFilteredList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)  //optional chaining
  }
 
 
@@ -93,30 +97,34 @@ return(
 return(
 
     <div className="body">
-        <div className="filter">
-        <div className="search"> 
-            <input type="text" className="search-box" value={searchText} onChange={(e)=>{
+        <div className="filter flex">
+        <div className="search m-4 p-4"> 
+            <input type="text" className="border border-solid border-black" value={searchText} onChange={(e)=>{
                 setSearchText(e.target.value);
                 }}
                  placeholder="Search Restaurants..."
             ></input>
-            <button onClick={()=>{
+            <button className="px-4 py-2 bg-green-100 m-4 rounded-lg" onClick={()=>{
                 const filteredRestaraunt=restaurantList.filter(
                     (res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase())
                     );
                 setFilteredList(filteredRestaraunt);
             }}>Search</button>
         </div>
-            <button className="filter-btn" onClick={()=>{
+        <div className="search m-4 p-4 flex items-center ">
+        <button className="px-4 py-2 bg-gray-100 rounded-lg" onClick={()=>{
                 const filterList=restaurantList.filter(
                     (restaurant)=>restaurant.info.avgRating>4);
                 setFilteredList(filterList);
                 }} >Top Rated Restaraunts</button>
         </div>
-        <div className="res-container" >
+            
+        </div>
+        <div className="res-container flex flex-wrap" >
             { //not using keys(not acceptable)<<index as key<<unique id(best practice)
-                filteredRestaraunt.map((restaurant)=>
-                <Link key={restaurant.info.id} to={"/restaraunts/"+restaurant.info.id}><RestarauntCard resData={restaurant}/></Link>)
+                filteredRestaraunt.map((restaurant)=>(
+                <Link key={restaurant.info.id} to={"/restaraunts/"+restaurant.info.id}>
+                    {restaurant.info.sla.deliveryTime>=25?(<RestarauntWithDel resData={restaurant}/>):(<RestarauntCard resData={restaurant}/>)}</Link>))
             }     
         </div>
     </div>
