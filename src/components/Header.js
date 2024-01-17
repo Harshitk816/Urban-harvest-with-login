@@ -17,7 +17,6 @@ const Header=()=>{
                         <li>Online status: {onlineStatus?"🟢":"🔴"}</li>
                         <li className="px-4" ><Link to="/">Home</Link></li>
                         <li className="px-4" ><Link to="/groceries">Groceries</Link></li>
-                        <li className="px-4" ><Link to="/groceries">Groceries</Link></li>
                         <li className="px-4" ><Link to="/contact">Contact Us</Link></li>
                         <li className="px-4" ><Link to="/about">About Us</Link></li>
                         <li>Cart</li>
