@@ -7,7 +7,7 @@ const User=(props)=>{
         location:"Dummy location",
         avatar_url:"https://www.dummy-image.com",
     })
-    console.log(userInfo.name);
+
     
 
     useEffect( ()=>{fetchData()},[]);

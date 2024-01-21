@@ -1,7 +1,16 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../reduxUtils/cartSlice";
 
 const ItemList=({items})=>{
     
-    const CDN_URL="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"
+    const CDN_URL="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+    const dispatch=useDispatch();
+    const handleAddItem=(item)=>{
+        //dispatch an action
+        dispatch(addItem(item));
+        
+    }
+    
     return(
     <div>
         {items.map((item)=>
@@ -18,7 +27,7 @@ const ItemList=({items})=>{
             </div>
             <div className="w-3/12">
                 <img className=" w-41  p-1 rounded-lg" src={CDN_URL+item.card.info.imageId}></img>
-                <button className=" md:border border-gray-300 px-2 rounded-md relative mx-[10%] bottom-2 bg-white sm:mx-[35%] md:mx-[18%] lg:mx-[25%] xl:md-[50%]" >ADD</button>
+                <button onClick={()=>handleAddItem(item)} className=" md:border border-gray-300 px-2 rounded-md relative mx-[35%] bottom-2 bg-white " >ADD</button>
             </div>
             
         </div>)}

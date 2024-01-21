@@ -1,11 +1,13 @@
 import RestarauntCard from "./RestarauntCard";
 import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
+import Shimmer from "../shimmer-components/Shimmer";
 import { Link } from "react-router-dom";
 import { SWIGGY_API } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useRestarauntList from "../utils/useRestarauntList";
 import { withDeliveryLogo } from "./RestarauntCard";
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 
 
 const Body=()=>{
@@ -63,6 +65,8 @@ const restaurantList=useRestarauntList(); //getting restarauntList from SWIGGY A
 const [filteredRestaraunt,setFilteredList]=useState([]);
 const [searchText,setSearchText]=useState("");//search box value
 
+const {loggedInUser,setUserInfo}=useContext(UserContext);
+
 //higher order component
 const RestarauntWithDel=withDeliveryLogo(RestarauntCard);
 
@@ -117,6 +121,12 @@ return(
                     (restaurant)=>restaurant.info.avgRating>4);
                 setFilteredList(filterList);
                 }} >Top Rated Restaraunts</button>
+        </div>
+        <div className="search m-4 p-4 flex items-center ">
+        <label>Name : </label>
+        <input className="border border-solid border-black p-2 m-2 "
+                value={loggedInUser}
+                onChange={(e)=>setUserInfo(e.target.value)}/>
         </div>
             
         </div>
