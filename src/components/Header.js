@@ -25,8 +25,8 @@ const Header2=()=>{
                     <img className="drop-shadow-md sm:max-2xl:hidden xs:block w-20 " src= "https://pbs.twimg.com/media/GEl5tuGaMAAR71l?format=png&name=240x240"></img>
                 </div>
             
-                <div  className={"   nav-links absolute 2xs:max-lg:bg-white min-h-[60vh] drop-shadow-md w-full lg:static lg:min-h-fit left-0 lg:w-auto  "+option}>
-                    <ul className="z-10 flex  relative md:flex-col items-center 2xs:max-lg:gap-[8vh] right-0 lg:right-14 lg:flex-row flex-col gap-[3vw] font-medium text-sm  xl:text-base ">
+                <div  className={"   nav-links absolute 2xs:max-lg:bg-white min-h-[55vh] drop-shadow-md w-full lg:static lg:min-h-fit left-0 lg:w-auto  "+option}>
+                    <ul className="z-10 flex  relative md:flex-col items-center 2xs:max-lg:pt-5 2xs:max-lg:gap-[8vh] right-0 lg:right-14 lg:flex-row flex-col gap-[3vw] font-medium text-sm  xl:text-base ">
 
                         <li className=" hover:border-b-2  hover:border-teal-800 transition duration-500"><Link to="/">Home</Link></li>
                         <li className=" hover:border-b-2  hover:border-teal-800 transition duration-500"><Link to="/groceries">Groceries</Link></li>
