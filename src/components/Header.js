@@ -28,10 +28,10 @@ const Header2=()=>{
                 <div  className={"   nav-links absolute 2xs:max-lg:bg-white min-h-[55vh] drop-shadow-md w-full lg:static lg:min-h-fit left-0 lg:w-auto  "+option}>
                     <ul className="z-10 flex  relative md:flex-col items-center 2xs:max-lg:pt-5 2xs:max-lg:gap-[8vh] right-0 lg:right-14 lg:flex-row flex-col gap-[3vw] font-medium text-sm  xl:text-base ">
 
-                        <li className=" hover:border-b-2  hover:border-teal-800 transition duration-500"><Link to="/">Home</Link></li>
-                        <li className=" hover:border-b-2  hover:border-teal-800 transition duration-500"><Link to="/groceries">Groceries</Link></li>
-                        <li className=" hover:border-b-2  hover:border-teal-800 transition duration-500"><Link to="/contact">Contact Us</Link></li>
-                        <li className=" hover:border-b-2  hover:border-teal-800 transition duration-500"><Link to="/about">About Us</Link></li>
+                        <li className=" hover:border-b-2  hover:border-[#4e7e6e] transition duration-500"><Link to="/">Home</Link></li>
+                        <li className=" hover:border-b-2  hover:border-[#4e7e6e] transition duration-500"><Link to="/groceries">Groceries</Link></li>
+                        <li className=" hover:border-b-2  hover:border-[#4e7e6e] transition duration-500"><Link to="/contact">Contact Us</Link></li>
+                        <li className=" hover:border-b-2  hover:border-[#4e7e6e] transition duration-500"><Link to="/about">About Us</Link></li>
                         <li>{onlineStatus?"Online":"Offline"}  {onlineStatus?"🟢":"🔴"}</li>
                     </ul>
                 </div>
@@ -40,7 +40,7 @@ const Header2=()=>{
 
                 <div className="relative flex items-center gap-[1vw]">
                     
-                    <button className="absolute shadow-md right-20 bg-teal-800 text-white px-5 py-2 rounded-full hover:bg-teal-600 2xs:max-xs:right-28 xs:right-32 sm:right-32 md:right-32 lg:right-20" onClick={()=>{
+                    <button className="absolute shadow-md right-20 bg-[#4e7e6e] text-white px-5 py-2 rounded-full hover:bg-[#4e7e6e] 2xs:max-xs:right-28 xs:right-32 sm:right-32 md:right-32 lg:right-20" onClick={()=>{
                         //conditional rendering
                        if(btnNameReact==="Login"){
                         setBtnNameReact(loggedInUser);
@@ -52,7 +52,7 @@ const Header2=()=>{
                     }}>{btnNameReact}
                     </button>
 
-                    <span className="relative shadow-md bg-teal-800 flex text-white px-4 py-2 rounded-full hover:bg-teal-600 2xs:max-xs:left-2"> 
+                    <span className="relative shadow-md bg-[#4e7e6e] flex text-white px-4 py-2 rounded-full hover:bg-[#4e7e6e] 2xs:max-xs:left-2"> 
                         <svg color="white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 ">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                         </svg>
