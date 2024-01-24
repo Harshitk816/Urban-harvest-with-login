@@ -7,3 +7,4 @@ export const MENU_API="https://thingproxy.freeboard.io/fetch/https://www.swiggy.
 
 export const SWIGGY_API="https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
+export const SEARCH_BG = "https://pbs.twimg.com/media/GEmqhKWagAAV-gH?format=jpg&name=4096x4096"

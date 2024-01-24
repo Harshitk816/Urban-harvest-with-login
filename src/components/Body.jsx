@@ -8,6 +8,7 @@ import useRestarauntList from "../utils/useRestarauntList";
 import { withDeliveryLogo } from "./RestarauntCard";
 import UserContext from "../utils/UserContext";
 import { useContext } from "react";
+import search_bg from "../images/search_bg.png"
 
 
 const Body=()=>{
@@ -70,7 +71,6 @@ const {loggedInUser,setUserInfo}=useContext(UserContext);
 //higher order component
 const RestarauntWithDel=withDeliveryLogo(RestarauntCard);
 
-
 //fetching data from live swiggy api
  useEffect(()=>{fetchData()},[])
 
@@ -99,29 +99,36 @@ return(
  }
 return(
 
-    <div className="body">
-        <div className="filter flex">
-        <div className="search m-4 p-4"> 
-            <input data-testid="searchInput" type="text" className="border border-solid border-black" value={searchText} onChange={(e)=>{
-                setSearchText(e.target.value);
-                }}
-                 placeholder="Search Restaurants..."
-            ></input>
-            <button className="px-4 py-2 bg-green-100 m-4 rounded-lg" onClick={()=>{
-                const filteredRestaraunt=restaurantList.filter(
-                    (res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase())
-                    );
-                setFilteredList(filteredRestaraunt);
-            }}>Search</button>
+    <div className="body border rounded-2xl w-[97%] m-auto bg-[#eaf5ef]">
+        <div className="relative filter flex bg-[100px] bg-cover rounded-xl m-3" style={{"background-image":`url(${search_bg})`}} >
+            <div className="search my-4 ms-6 p-4 2xs:max-xs:p-2"> 
+                <div className="p-[2px] border rounded-3xl bg-white flex flex-row items-center 2xs:max-sm:flex-col 2xs:max-xs:w-[90%] 2xs:max-md:p-[4px]">
+                    <input data-testid="searchInput" type="text" className="px-4 text-sm py-1 rounded-2xl 2xs:max-xs:w-[100%] 2xs:max-md:px-2" value={searchText} onChange={(e)=>{
+                        setSearchText(e.target.value);
+                        }}
+                        placeholder="Search Restaurants..."
+                    ></input>
+                    <button className="px-4 text-white py-1 bg-[#4e7e6e] rounded-2xl 2xs:max-md:w-full " onClick={()=>{
+                    const filteredRestaraunt=restaurantList.filter(
+                        (res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                        );
+                        setFilteredList(filteredRestaraunt);
+                        }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 m-auto" >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+
+                        </button>
+                </div>
         </div>
-        <div className="search m-4 p-4 flex items-center ">
-        <button className="px-4 py-2 bg-gray-100 rounded-lg" onClick={()=>{
+        <div className="search my-4 mx-1 p-4 flex items-center me-6 2xs:max-xs:p-2">
+        <button className="px-4 py-2 bg-gray-100 text-sm rounded-3xl" onClick={()=>{
                 const filterList=restaurantList.filter(
                     (restaurant)=>restaurant.info.avgRating>4);
                 setFilteredList(filterList);
                 }} >Top Rated Restaraunts</button>
         </div>
-        <div className="search m-4 p-4 flex items-center hidden ">
+        <div className="search m-4 p-4 items-center hidden ">
         <label>Name : </label>
         <input className="border border-solid border-black p-2 m-2 "
                 value={loggedInUser}
@@ -129,10 +136,10 @@ return(
         </div>
             
         </div>
-        <div className="res-container flex flex-wrap" >
+        <div className="res-container flex flex-row flex-wrap" >
             { //not using keys(not acceptable)<<index as key<<unique id(best practice)
                 filteredRestaraunt.map((restaurant)=>(
-                <Link key={restaurant.info.id} to={"/restaraunts/"+restaurant.info.id}>
+                <Link className=" basis-1/5" key={restaurant.info.id} to={"/restaraunts/"+restaurant.info.id}>
                     {restaurant.info.sla.deliveryTime>=25?(<RestarauntWithDel resData={restaurant}/>):(<RestarauntCard resData={restaurant}/>)}</Link>))
             }     
         </div>

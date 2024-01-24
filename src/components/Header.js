@@ -17,7 +17,7 @@ const Header2=()=>{
 
     return(
     
-    <header className="sticky top-0 w-full z-10 py-5 bg-white " >     
+    <header className="sticky top-0 w-full z-20 py-5 bg-white " >     
         
             <nav className=" flex justify-between items-center w-[92%] ms-[3vw]">
                 <div>
