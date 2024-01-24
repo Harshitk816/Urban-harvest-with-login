@@ -19,7 +19,7 @@ const RestarauntMenu = () => {
     "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
 
   return (
-    <div className="text-center">
+    <div className="text-center border rounded-2xl w-[97%] m-auto bg-[#eaf5ef]">
         <h1 className="font-bold my-6 text-2xl">{name}</h1>
         <p className="font-bold text-lg">
           {cuisines.join(", ")} - {costForTwoMessage}

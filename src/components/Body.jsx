@@ -100,15 +100,15 @@ return(
 return(
 
     <div className="body border rounded-2xl w-[97%] m-auto bg-[#eaf5ef]">
-        <div className="relative filter flex bg-[100px] bg-cover rounded-xl m-3" style={{"background-image":`url(${search_bg})`}} >
+        <div className="shadow-2xl relative filter flex bg-[100px] bg-cover rounded-xl m-3" style={{"background-image":`url(${search_bg})`}} >
             <div className="search my-4 ms-6 p-4 2xs:max-xs:p-2"> 
-                <div className="p-[2px] border rounded-3xl bg-white flex flex-row items-center 2xs:max-sm:flex-col 2xs:max-xs:w-[90%] 2xs:max-md:p-[4px]">
-                    <input data-testid="searchInput" type="text" className="px-4 text-sm py-1 rounded-2xl 2xs:max-xs:w-[100%] 2xs:max-md:px-2" value={searchText} onChange={(e)=>{
+                <div className=" drop-shadow-2xl shadow-inner p-[2px] border rounded-3xl bg-white flex flex-row items-center 2xs:max-sm:flex-col 2xs:max-xs:w-[90%] 2xs:max-md:p-[4px]">
+                    <input data-testid="searchInput" type="text" className=" focus:outline-none px-4 text-sm py-1 rounded-2xl 2xs:max-xs:w-[100%] 2xs:max-md:px-2" value={searchText} onChange={(e)=>{
                         setSearchText(e.target.value);
                         }}
                         placeholder="Search Restaurants..."
                     ></input>
-                    <button className="px-4 text-white py-1 bg-[#4e7e6e] rounded-2xl 2xs:max-md:w-full " onClick={()=>{
+                    <button className=" drop-shadow-2xl px-4 text-white py-1 bg-[#4e7e6e] rounded-2xl 2xs:max-md:w-full " onClick={()=>{
                     const filteredRestaraunt=restaurantList.filter(
                         (res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase())
                         );
@@ -136,10 +136,10 @@ return(
         </div>
             
         </div>
-        <div className="res-container flex flex-row flex-wrap" >
+        <div className="res-container grid gap-4 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-3 sm:gap-2 xs:grid-cols-2 " >
             { //not using keys(not acceptable)<<index as key<<unique id(best practice)
                 filteredRestaraunt.map((restaurant)=>(
-                <Link className=" basis-1/5" key={restaurant.info.id} to={"/restaraunts/"+restaurant.info.id}>
+                <Link className=" " key={restaurant.info.id} to={"/restaraunts/"+restaurant.info.id}>
                     {restaurant.info.sla.deliveryTime>=25?(<RestarauntWithDel resData={restaurant}/>):(<RestarauntCard resData={restaurant}/>)}</Link>))
             }     
         </div>
