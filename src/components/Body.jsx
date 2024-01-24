@@ -77,8 +77,7 @@ const RestarauntWithDel=withDeliveryLogo(RestarauntCard);
  const fetchData=async()=>{//async await
     const data =await fetch(SWIGGY_API);
     const json=await data.json();
-    console.log(json);
- 
+
     setFilteredList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)  //optional chaining
  }
 
@@ -103,7 +102,7 @@ return(
     <div className="body">
         <div className="filter flex">
         <div className="search m-4 p-4"> 
-            <input type="text" className="border border-solid border-black" value={searchText} onChange={(e)=>{
+            <input data-testid="searchInput" type="text" className="border border-solid border-black" value={searchText} onChange={(e)=>{
                 setSearchText(e.target.value);
                 }}
                  placeholder="Search Restaurants..."
@@ -122,7 +121,7 @@ return(
                 setFilteredList(filterList);
                 }} >Top Rated Restaraunts</button>
         </div>
-        <div className="search m-4 p-4 flex items-center ">
+        <div className="search m-4 p-4 flex items-center hidden ">
         <label>Name : </label>
         <input className="border border-solid border-black p-2 m-2 "
                 value={loggedInUser}
