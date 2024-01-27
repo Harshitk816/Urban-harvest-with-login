@@ -13,7 +13,7 @@ const handleClick=()=>{
     <div className='body border rounded-2xl w-[97%] m-auto drop-shadow-sm bg-[#eaf5ef]'>
       <h1 className='font-bold drop-shadow-md text-3xl p-4 m-4'>Contact us.</h1>
 
-      <form className='drop-shadow-sm'>
+      <form className='drop-shadow-sm' method="get" target="_blank">
         <div className='gap-4 grid grid-cols-2'>
           <input type="text" className='border shadow-inner col-span-1  p-2 mx-2 focus:outline-none px-4 text-sm rounded-2xl 2xs:max-md:px-2' placeholder='name' required></input>
           <input type="email" className='border shadow-inner col-span-2 p-2 mx-2 focus:outline-none px-4 text-sm rounded-2xl 2xs:max-md:px-2' placeholder='email' required></input>
