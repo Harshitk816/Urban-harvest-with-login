@@ -21,8 +21,8 @@ const Header2=()=>{
         
             <nav className=" flex justify-between items-center w-[92%] ms-[3vw]">
                 <div>
-                    <img className=" drop-shadow-md w-52 2xs:max-sm:hidden xl:w-60  " src= {LOGO_URL}></img>
-                    <img className="drop-shadow-md sm:max-2xl:hidden 2xl:hidden xs:block w-20 " src= "https://pbs.twimg.com/media/GEl5tuGaMAAR71l?format=png&name=240x240"></img>
+                    <Link to="/"><img className=" drop-shadow-md w-52 2xs:max-sm:hidden xl:w-60  " src= {LOGO_URL}></img></Link>
+                    <Link to="/"><img className="drop-shadow-md sm:max-2xl:hidden 2xl:hidden xs:block w-20 " src= "https://pbs.twimg.com/media/GEl5tuGaMAAR71l?format=png&name=240x240"></img></Link>
                 </div>
             
                 <div  className={"   nav-links absolute 2xs:max-lg:bg-white min-h-[55vh] drop-shadow-md w-full lg:static lg:min-h-fit left-0 lg:w-auto  "+option}>
