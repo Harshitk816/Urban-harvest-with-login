@@ -15,9 +15,9 @@ const RestarauntMenu = () => {
     const [showIndex,setShowIndex]=useState(null);
     if(resInfo===null) return<ResMenuShimmer/>;
 
-    const {name,cuisines,costForTwoMessage,cloudinaryImageId,avgRating}=resInfo?.cards[0]?.card?.card?.info;
-    const {itemCards}=resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-    const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(category=>category.card?.card?.["@type"]===
+    const {name,cuisines,costForTwoMessage,cloudinaryImageId,avgRating}=resInfo?.cards[2]?.card?.card?.info;
+    const {itemCards}=resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(category=>category.card?.card?.["@type"]===
     "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
 
   return (

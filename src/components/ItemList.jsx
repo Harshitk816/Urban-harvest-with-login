@@ -1,9 +1,10 @@
 import { useDispatch } from "react-redux";
 import { addItem } from "../reduxUtils/cartSlice";
+import { CDN_URL } from "../utils/constants";
 
 const ItemList=({items})=>{
     
-    const CDN_URL="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+    
     const dispatch=useDispatch();
     const handleAddItem=(item)=>{
         //dispatch an action
