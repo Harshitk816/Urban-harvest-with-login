@@ -8,7 +8,7 @@ import { getAuth } from "firebase/auth"
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCQLa9FrIGBB39O0SiHTIWUN4V9OcHV2rw",
+  apiKey: process.env.FIREBASE,
   authDomain: "urban-harvest-a8613.firebaseapp.com",
   projectId: "urban-harvest-a8613",
   storageBucket: "urban-harvest-a8613.appspot.com",
