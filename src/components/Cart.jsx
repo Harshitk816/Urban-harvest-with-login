@@ -1,14 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import ItemList from "./ItemList";
 import { clearCart } from "../reduxUtils/cartSlice";
+import { useEffect, useState } from "react";
 
 const Cart = () =>{
+    const [totalSum, setTotalSum]=useState(0);
     const cartItems=useSelector((store)=>store.cart.items);
     const dispatch = useDispatch();
     const handleEmptyCart=()=>{
         dispatch(clearCart());
-
     }
+
+    useEffect(()=>{
+        const Sum = cartItems.reduce(function (total, item){
+            total=total+(item.card.info.price/100);
+            setTotalSum(total)
+        },0);
+    }, [totalSum])
+    
+    
     return (
         <div className="text-center m-4 p-4 ">
             <h1 className="text-2xl font-bold">Cart</h1>
@@ -18,6 +28,7 @@ const Cart = () =>{
                 )}
                 <ItemList items={cartItems}/>  
             </div>
+            
             <span><button
                  className="border px-3 py-2 my-2 bg-red-500 text-white rounded-3xl"
                  onClick={handleEmptyCart}

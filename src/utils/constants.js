@@ -8,3 +8,5 @@ export const MENU_API="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MEN
 export const SWIGGY_API="https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
 export const SEARCH_BG = "https://pbs.twimg.com/media/GEmqhKWagAAV-gH?format=jpg&name=4096x4096"
+
+export const USER_AVATAR = "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png?20201013161117"
