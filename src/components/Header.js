@@ -26,6 +26,10 @@ const Header2=()=>{
     const [isActive,setIsActive]=useState(false);
     const option = isActive?'top-[100px]':'top-[-100vh]';
 
+    const handleNavOptionClick = () => {
+      setIsActive(false);
+      }
+
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (user) => {//if the user signed in then add user and navigate to browse(callback function)
           if (user) {
@@ -56,6 +60,7 @@ const Header2=()=>{
       }
 
     return(
+      
     
     <header className="sticky top-0 w-full z-20 py-5 bg-white " >     
         
@@ -68,10 +73,10 @@ const Header2=()=>{
                 <div  className={"   nav-links absolute 2xs:max-lg:bg-white min-h-[55vh] drop-shadow-md w-full lg:static lg:min-h-fit left-0 lg:w-auto  "+option}>
                     <ul className="z-10 flex  relative md:flex-col items-center 2xs:max-lg:pt-5 2xs:max-lg:gap-[8vh] right-0 lg:right-14 lg:flex-row flex-col gap-[3vw] font-medium text-sm  xl:text-base ">
 
-                        {user && (<li className=" hover:border-b-2  hover:border-[#4e7e6e] transition duration-500"><Link to="/browse">Home</Link></li>)}
-                        {user && (<li className=" hover:border-b-2  hover:border-[#4e7e6e] transition duration-500"><Link to="/groceries">Groceries</Link></li>)}
-                        <li className=" hover:border-b-2  hover:border-[#4e7e6e] transition duration-500"><Link to="/contact">Contact Us</Link></li>
-                        <li className=" hover:border-b-2  hover:border-[#4e7e6e] transition duration-500"><Link to="/about">About Us</Link></li>
+                        {user && (<li onClick={handleNavOptionClick} className=" hover:border-b-2  hover:border-[#4e7e6e] transition duration-500"><Link to="/browse">Home</Link></li>)}
+                        {user && (<li onClick={handleNavOptionClick} className=" hover:border-b-2  hover:border-[#4e7e6e] transition duration-500"><Link to="/groceries">Groceries</Link></li>)}
+                        <li onClick={handleNavOptionClick} className=" hover:border-b-2  hover:border-[#4e7e6e] transition duration-500"><Link to="/contact">Contact Us</Link></li>
+                        <li onClick={handleNavOptionClick} className=" hover:border-b-2  hover:border-[#4e7e6e] transition duration-500"><Link to="/about">About Us</Link></li>
                         <li>{onlineStatus?"Online":"Offline"}  {onlineStatus?"🟢":"🔴"}</li>
                     </ul>
                 </div>
@@ -80,9 +85,9 @@ const Header2=()=>{
 
                 <div className="relative flex items-center gap-[1vw]">
                     
-                {user && ( <button className="absolute shadow-md right-20 bg-[#4e7e6e] text-white px-5 py-2 rounded-full hover:bg-[#4e7e6e] 2xs:max-xs:right-28 xs:right-32 sm:right-32 md:right-24 lg:right-28" >{user?.displayName?.split(' ')[0]}
+                {user && ( <button className="absolute shadow-md right-20 bg-[#4e7e6e] text-white px-5 py-2 rounded-full hover:bg-[#4e7e6e] 2xs:max-xs:right-36 xs:right-40 sm:right-34 md:right-44 lg:right-28" >{user?.displayName?.split(' ')[0]}
                     </button>)}
-                    {user && (<button  onClick={handleSignOut} className='absolute bg-[#4e7e6e] shadow-md right-10 text-white px-3 py-2 rounded-full hover:bg-red-600 2xs:max-xs:right-12 xs:right-16 sm:right-16 md:right-16 lg:right-20"'> <i className='bx bx-power-off'></i></button>)}
+                    {user && (<button  onClick={handleSignOut} className='absolute bg-[#4e7e6e] shadow-md right-16 text-white px-3 py-2 rounded-full hover:bg-red-600 2xs:max-xs:right-[100px] xs:right-28 sm:right-30 md:right-30 lg:right-16'> <i className='bx bx-power-off'></i></button>)}
 
                     {user && (<Link to="/cart"><span className="relative shadow-md bg-[#4e7e6e] flex text-white px-4 py-2 rounded-full hover:bg-[#4e7e6e] 2xs:max-xs:left-2"> 
                         <svg color="white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 ">
