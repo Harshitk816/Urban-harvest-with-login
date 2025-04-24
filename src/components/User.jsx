@@ -29,7 +29,7 @@ const User=(props)=>{
         </div>
         <div className="w-4/12 2xs:max-xs:w-6/12 2xs:max-xs:pt-6 relative">
 
-      //    <img className=" w-full rounded-2xl" src="https://static.mediawire.in/pr/metadata/41480357/temp/logo.png?id=17166?id=17166"></img>
+      {/*    <img className=" w-full rounded-2xl" src="https://static.mediawire.in/pr/metadata/41480357/temp/logo.png?id=17166?id=17166"></img>*/}
         </div>
             {/* <img width="100px" src={avatar_url}></img>
             <h2>Name : {name}</h2>
