@@ -24,7 +24,7 @@ const User=(props)=>{
           <h1 className="font-bold  text-3xl py-3 2xs:max-sm:text-sm">Personal Project</h1>
           <h2 className="text-xl py-3 2xs:max-sm:text-sm">Frontend Development</h2>
           <p className=" font-normal text-sm 2xs:max-sm:text-xs text-balance me-4 leading-6">
-            This website is created by <b>Abhishek Murthy</b>. I have used various tech features to create this website. I will leave the links below.
+            This website is created by <b>Harshit Sharma</b>. I have used various tech features to create this website. I will leave the links below.
           </p>
         </div>
         <div className="w-4/12 2xs:max-xs:w-6/12 2xs:max-xs:pt-6 relative">
